@@ -1,0 +1,188 @@
+<div class="container team-container">
+  <h1 class="mb-3">👥 Nuestro Equipo</h1>
+  <p class="lead text-muted mb-5">
+    Conoce al equipo de Ingeniería de Sistemas detrás de este proyecto educativo
+  </p>
+
+  <section class="mb-5">
+    <h2 class="mb-4">👨‍💼 Miembros del Equipo</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let member of teamMembers">
+        <div class="card team-card h-100">
+          <div class="card-body">
+            <div class="member-header mb-3">
+              <span class="member-emoji">{{ member.emoji }}</span>
+              <div>
+                <h5 class="card-title mb-0">{{ member.name }}</h5>
+                <small class="text-muted">{{ member.role }}</small>
+              </div>
+            </div>
+
+            <p class="card-text text-secondary mb-3">
+              {{ member.bio }}
+            </p>
+
+            <div>
+              <h6 class="fw-bold mb-2">Especialidades:</h6>
+              <div class="expertise-tags">
+                <span class="badge bg-primary me-2 mb-2" *ngFor="let skill of member.expertise">
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="mb-4">📊 Distribución de Roles</h2>
+    <div class="row g-3">
+      <div class="col-md-6" *ngFor="let teamRole of teamRoles">
+        <div class="role-card">
+          <div class="role-header">
+            <h5 class="role-title mb-0">{{ teamRole.role }}</h5>
+            <span class="badge-role">
+              <span [ngClass]="'badge ' + getBadgeClass(teamRole.badgeType)">
+                {{ teamRole.role }}
+              </span>
+            </span>
+          </div>
+          <p class="role-description mb-2">{{ teamRole.description }}</p>
+          <div class="role-count">
+            Miembros: <strong>{{ teamRole.count }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5 p-4 bg-light rounded">
+    <h2 class="mb-4">🎓 Contexto Institucional</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <h5>Universidad</h5>
+        <p>
+          <strong>UCEVA</strong> - Universidad Católica del Valle
+        </p>
+        <p class="text-muted">
+          Institución de educación superior con enfoque en formar ingenieros competentes
+          en tecnología y arquitectura de software.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h5>Programa</h5>
+        <p>
+          <strong>Ingeniería de Sistemas</strong> - VIII Semestre
+        </p>
+        <p class="text-muted">
+          Especialización en arquitectura de software, patrones de diseño
+          y desarrollo de aplicaciones empresariales.
+        </p>
+      </div>
+      <div class="col-md-12">
+        <h5>Asignatura: Arquitectura de Software</h5>
+        <p class="text-muted">
+          Curso dedicado a la comprensión e implementación de patrones arquitectónicos modernos,
+          principios SOLID, clean code, y buenas prácticas en el desarrollo de software a gran escala.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="mb-4">🎯 Responsabilidades del Proyecto</h2>
+    <div class="accordion" id="responsibilities">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#resp1"
+            aria-expanded="true"
+            aria-controls="resp1"
+          >
+            📐 Arquitectura del Proyecto
+          </button>
+        </h2>
+        <div id="resp1" class="accordion-collapse collapse show" data-bs-parent="#responsibilities">
+          <div class="accordion-body">
+            Diseñar y documentar la estructura general del proyecto, incluyendo la separación
+            de dos aplicaciones diferentes (Astro SSG y Angular SPA) que demuestran patrones distintos.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#resp2"
+            aria-expanded="false"
+            aria-controls="resp2"
+          >
+            🚀 Desarrollo de Astro
+          </button>
+        </h2>
+        <div id="resp2" class="accordion-collapse collapse" data-bs-parent="#responsibilities">
+          <div class="accordion-body">
+            Implementar la aplicación de generación estática con Astro, incluyendo componentes,
+            layout, páginas y estilos con Bootstrap.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#resp3"
+            aria-expanded="false"
+            aria-controls="resp3"
+          >
+            ⚡ Desarrollo de Angular
+          </button>
+        </h2>
+        <div id="resp3" class="accordion-collapse collapse" data-bs-parent="#responsibilities">
+          <div class="accordion-body">
+            Crear la Single Page Application con Angular, implementando componentes standalone,
+            servicios, rutas y gestión de estado con RxJS.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#resp4"
+            aria-expanded="false"
+            aria-controls="resp4"
+          >
+            ✅ Aseguramiento de Calidad
+          </button>
+        </h2>
+        <div id="resp4" class="accordion-collapse collapse" data-bs-parent="#responsibilities">
+          <div class="accordion-body">
+            Implementar tests unitarios con Jest, revisar código, documentar y asegurar que
+            el proyecto sigue buenas prácticas de desarrollo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-center py-4">
+    <h3 class="mb-4">¿Quieres saber más?</h3>
+    <div class="btn-group-custom">
+      <a routerLink="/about" class="btn btn-outline-primary">Acerca del Proyecto</a>
+      <a routerLink="/categories" class="btn btn-outline-info">Categorías</a>
+      <a routerLink="/users" class="btn btn-outline-secondary">Usuarios Registrados</a>
+    </div>
+  </section>
+</div>

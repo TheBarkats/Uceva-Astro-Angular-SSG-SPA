@@ -1,0 +1,100 @@
+<div class="container about-container">
+  <h1 class="mb-3">Acerca de Esta Aplicación</h1>
+
+  <section class="mb-5">
+    <h2 class="mb-3">📋 Descripción General</h2>
+    <p class="lead">
+      Esta es una aplicación educativa que demuestra los principios de
+      <strong>Arquitectura de Software Moderna</strong>
+      mediante la implementación de dos patrones complementarios de desarrollo web.
+    </p>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="mb-3">🎯 Objetivos</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let obj of objectives">
+        <strong>{{ obj.title }}:</strong> {{ obj.description }}
+      </li>
+    </ul>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="mb-3">🏗️ Arquitectura del Proyecto</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">⚡ Astro SSG</h5>
+            <p class="card-text">
+              Generación estática de HTML en tiempo de compilación.
+              Ideal para sitios informativos, blogs y documentación.
+            </p>
+            <ul class="small">
+              <li>Renderizado en build-time</li>
+              <li>Excelente SEO</li>
+              <li>Performance superior</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">🎨 Angular SPA</h5>
+            <p class="card-text">
+              Aplicación interactiva renderizada en el navegador
+              del cliente. Perfecta para aplicaciones complejas.
+            </p>
+            <ul class="small">
+              <li>Renderizado en runtime</li>
+              <li>Interactividad completa</li>
+              <li>Componentes reutilizables</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="mb-3">📚 Tecnologías Utilizadas</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let tech of technologies">
+        <h5>{{ tech.category }}</h5>
+        <ul>
+          <li *ngFor="let item of tech.items">
+            <strong>{{ item }}</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="mb-3">🎓 Contexto Educativo</h2>
+    <p>
+      Este proyecto fue desarrollado como parte del curso
+      <strong>Arquitectura de Software</strong>
+      en UCEVA (Universidad Católica del Valle), VIII Semestre de Ingeniería de Sistemas.
+    </p>
+    <p>
+      Su propósito es servir como referencia práctica para estudiantes de ingeniería
+      que deseen entender las diferencias entre patrones arquitectónicos modernos y sus aplicaciones reales.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="mb-3">🔗 Explorar</h2>
+    <p>
+      Navega a través de las diferentes secciones para más información:
+    </p>
+    <ul>
+      <li><a routerLink="/users">📊 Usuarios</a> - Ver listado de usuarios del sistema</li>
+      <li><a routerLink="/products">🛒 Productos</a> - Ver catálogo de productos</li>
+      <li><a routerLink="/categories">🏷️ Categorías</a> - Conocer las categorías disponibles</li>
+      <li><a routerLink="/team">👥 Equipo</a> - Ver información del equipo</li>
+      <li><a routerLink="/date">📅 Fecha Actual</a> - Fecha y hora del sistema</li>
+    </ul>
+  </section>
+</div>
