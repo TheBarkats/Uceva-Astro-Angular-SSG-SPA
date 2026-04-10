@@ -1,0 +1,118 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+---
+
+<MainLayout>
+  <div class="container">
+    <h1 class="mb-4">Acerca de Astro App</h1>
+    
+    <div class="row">
+      <div class="col-md-8">
+        <section class="mb-5">
+          <h2 class="h3 mb-3">¿Qué es Astro App?</h2>
+          <p class="lead">
+            Astro App es una aplicación web moderna que demuestra el uso de generación de sitios estáticos (SSG) 
+            con Astro, un framework revolucionario para construir sitios web más rápidos.
+          </p>
+          <p>
+            Esta aplicación fue desarrollada como parte de un proyecto académico de 
+            <strong>Arquitectura de Software</strong> en la Universidad del Cauca (UCEVA), 
+            demostrando cómo implementar patrones arquitectónicos modernos en aplicaciones web.
+          </p>
+        </section>
+
+        <section class="mb-5">
+          <h2 class="h3 mb-3">Características Principales</h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Generación Estática</strong> - Páginas pre-renderizadas para máxima velocidad
+            </li>
+            <li class="list-group-item">
+              <strong>SEO Optimizado</strong> - HTML semántico estructurado para buscadores
+            </li>
+            <li class="list-group-item">
+              <strong>Interfaz Intuitiva</strong> - Tabla de gestión de productos y usuarios
+            </li>
+            <li class="list-group-item">
+              <strong>Componentes Reutilizables</strong> - Arquitectura modular y escalable
+            </li>
+            <li class="list-group-item">
+              <strong>Bootstrap Integrado</strong> - Estilos modernos y responsivos
+            </li>
+          </ul>
+        </section>
+
+        <section class="mb-5">
+          <h2 class="h3 mb-3">Tecnologías Utilizadas</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Frontend</h5>
+              <ul>
+                <li>Astro 5.16.9</li>
+                <li>Bootstrap 5.3.8</li>
+                <li>Bootstrap Icons 1.13.1</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h5>Lenguajes</h5>
+              <ul>
+                <li>TypeScript</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h2 class="h3 mb-3">Navegación</h2>
+          <p>
+            Utiliza el menú de navegación en la parte superior para acceder a las diferentes secciones:
+          </p>
+          <ul>
+            <li><strong>Usuarios</strong> - Consulta la base de datos de usuarios del sistema</li>
+            <li><strong>Productos</strong> - Explora el catálogo de productos disponibles</li>
+            <li><strong>Categorías</strong> - Conoce las categorías de productos</li>
+            <li><strong>Equipo</strong> - Información sobre el equipo de desarrollo</li>
+            <li><strong>Fecha</strong> - Información sobre la fecha actual del sistema</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Información Rápida</h5>
+            <p class="card-text">
+              <small class="text-muted">Última actualización: 2026</small>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">¿Necesitas ayuda?</h5>
+            <p class="card-text">
+              Esta aplicación es un proyecto educativo. 
+              Si tienes preguntas, consulta la sección de <strong>Equipo</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  section {
+    margin-top: 2rem;
+  }
+
+  ul {
+    margin-left: 1rem;
+  }
+
+  list-group-item {
+    padding: 0.75rem 0;
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import Badge from "@components/shared/Badge.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  specialty: string;
+  bio: string;
+  icon: string;
+}
+
+interface TeamSection {
+  title: string;
+  description: string;
+  members: TeamMember[];
+}
+
+const teamSections: TeamSection[] = [
+  {
+    title: 'Equipo Académico',
+    description: 'Docentes y coordinadores del proyecto de Arquitectura de Software',
+    members: [
+      {
+        id: 1,
+        name: 'Programa de Ingeniería de Sistemas',
+        role: 'Coordinador Académico',
+        specialty: 'Arquitectura de Software',
+        bio: 'Encargado de dirigir y supervisar el desarrollo de proyectos de arquitectura moderna en web.',
+        icon: '👨‍🏫'
+      },
+      {
+        id: 2,
+        name: 'Departamento de Desarrollo Web',
+        role: 'Especialista',
+        specialty: 'Frontend y Frameworks Modernos',
+        bio: 'Proporciona guía y mentoría en el uso de tecnologías modernas como Astro y Angular.',
+        icon: '💻'
+      }
+    ]
+  },
+  {
+    title: 'Equipo de Desarrollo',
+    description: 'Estudiantes de Ingeniería de Sistemas trabajando en el proyecto',
+    members: [
+      {
+        id: 3,
+        name: 'Estudiante de VIII Semestre',
+        role: 'Full Stack Developer',
+        specialty: 'Astro & Angular',
+        bio: 'Desarrollador principal del proyecto, responsable de implementar ambas arquitecturas.',
+        icon: '👨‍💻'
+      },
+      {
+        id: 4,
+        name: 'Control de Calidad',
+        role: 'QA & Testing',
+        specialty: 'Testing Automatizado',
+        bio: 'Responsable de asegurar la calidad y estabilidad del código en ambas aplicaciones.',
+        icon: '🧪'
+      }
+    ]
+  }
+];
+
+const technologies = [
+  { name: 'Astro', category: 'Frontend Framework' },
+  { name: 'Angular', category: 'Frontend Framework' },
+  { name: 'TypeScript', category: 'Lenguaje' },
+  { name: 'Bootstrap', category: 'CSS Framework' },
+  { name: 'RxJS', category: 'Reactividad' },
+  { name: 'Jest', category: 'Testing' }
+];
+---
+
+<MainLayout>
+  <div class="container">
+    <div class="mb-5">
+      <h1 class="mb-2">Equipo de Desarrollo</h1>
+      <p class="lead text-muted">
+        Conoce a los profesionales detrás de Astro App
+      </p>
+    </div>
+
+    {teamSections.map((section) => (
+      <section class="mb-5">
+        <h2 class="h3 mb-2">{section.title}</h2>
+        <p class="text-muted mb-4">{section.description}</p>
+
+        <div class="row">
+          {section.members.map((member) => (
+            <div class="col-md-6 mb-3">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                  <div class="d-flex align-items-start">
+                    <div class="me-3" style="font-size: 2.5rem;">
+                      {member.icon}
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="card-title mb-1">{member.name}</h5>
+                      <p class="mb-2">
+                        <strong class="text-primary">{member.role}</strong>
+                      </p>
+                      <p class="small text-muted mb-2">
+                        <strong>Especialidad:</strong> {member.specialty}
+                      </p>
+                      <p class="small text-justify">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="mb-5">
+      <h2 class="h3 mb-4">Tecnologías Utilizadas</h2>
+      <div class="row">
+        {technologies.map((tech) => (
+          <div class="col-md-4 mb-3">
+            <div class="card text-center h-100">
+              <div class="card-body">
+                <h6 class="card-title">{tech.name}</h6>
+                <p class="card-text small text-muted">{tech.category}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2 class="h3 mb-3">Misión del Proyecto</h2>
+      <div class="card bg-light border-0">
+        <div class="card-body">
+          <p class="card-text">
+            Este proyecto fue creado como parte del curso de <strong>Arquitectura de Software</strong> 
+            en el VIII semestre de Ingeniería de Sistemas de la <strong>Universidad del Cauca (UCEVA)</strong>.
+          </p>
+          <p class="card-text">
+            El objetivo principal es demostrar cómo implementar diferentes patrones arquitectónicos 
+            en aplicaciones web modernas, comparando un enfoque de <strong>generación estática (SSG)</strong> 
+            con Astro y una <strong>aplicación de página única (SPA)</strong> con Angular.
+          </p>
+          <p class="card-text mb-0">
+            A través de este proyecto, se busca que los estudiantes comprendan las ventajas y desventajas 
+            de cada arquitectura, permitiendo tomar decisiones informadas en futuros proyectos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2 class="h3 mb-3">Contacto y Recursos</h2>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">📚 Documentación</h5>
+              <p class="card-text small">
+                Accede a la documentación técnica del proyecto para más detalles sobre 
+                la implementación y arquitectura.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">🔗 Recursos Útiles</h5>
+              <p class="card-text small">
+                Visita los sitios oficiales de Astro y Angular para aprender más sobre 
+                estas tecnologías.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .card {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  .text-justify {
+    text-align: justify;
+  }
+</style>

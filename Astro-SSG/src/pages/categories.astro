@@ -1,0 +1,128 @@
+---
+import Badge from "@components/shared/Badge.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import type { BadgeType } from "@interfaces/Badge";
+import type { ProductCategory } from "@interfaces/Products";
+
+interface Category {
+  name: ProductCategory;
+  description: string;
+  badge: BadgeType;
+  icon: string;
+  examples: string[];
+}
+
+const categories: Category[] = [
+  {
+    name: 'Carnes',
+    description: 'Productos cárnicos frescos y de alta calidad para tu mesa. Incluye diferentes cortes y tipos de carne.',
+    badge: 'danger',
+    icon: '🥩',
+    examples: ['Res', 'Pollo', 'Cerdo', 'Cordero']
+  },
+  {
+    name: 'Frutas',
+    description: 'Frutas frescas y nutritivas, seleccionadas para garantizar calidad y frescura en cada producto.',
+    badge: 'warning',
+    icon: '🍎',
+    examples: ['Manzanas', 'Plátanos', 'Naranjas', 'Fresas', 'Uvas']
+  },
+  {
+    name: 'Lacteos',
+    description: 'Productos lácteos de origen confiable, perfectos para una alimentación balanceada y saludable.',
+    badge: 'primary',
+    icon: '🥛',
+    examples: ['Leche', 'Queso', 'Yogur', 'Mantequilla', 'Crema']
+  },
+  {
+    name: 'Verduras',
+    description: 'Verduras frescas y orgánicas, directas del productor para garantizar máxima frescura y nutrientes.',
+    badge: 'success',
+    icon: '🥕',
+    examples: ['Lechuga', 'Tomate', 'Zanahoria', 'Cebolla', 'Brócoli']
+  }
+];
+---
+
+<MainLayout>
+  <div class="container">
+    <div class="mb-5">
+      <h1 class="mb-2">Categorías de Productos</h1>
+      <p class="lead text-muted">
+        Explora nuestras cuatro categorías principales de productos frescos y de calidad
+      </p>
+    </div>
+
+    <div class="row">
+      {categories.map((category) => (
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                  <h3 class="card-title mb-0">
+                    <span class="me-2">{category.icon}</span>
+                    {category.name}
+                  </h3>
+                </div>
+                <Badge text={category.name} type={category.badge} />
+              </div>
+
+              <p class="card-text text-muted mb-3">
+                {category.description}
+              </p>
+
+              <div class="mt-4">
+                <h6 class="text-secondary mb-2">Ejemplos de productos:</h6>
+                <div class="d-flex flex-wrap gap-2">
+                  {category.examples.map((example) => (
+                    <span class="badge bg-light text-dark border">
+                      {example}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-light border-top-0">
+              <small class="text-muted">
+                Click para ver más detalles en la sección de productos
+              </small>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="alert alert-info" role="alert">
+          <h5 class="alert-heading">💡 Información adicional</h5>
+          <p class="mb-0">
+            Para ver el listado completo de productos disponibles en cada categoría, 
+            dirígete a la sección <strong>Productos</strong> en el menú de navegación.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .hover-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .card-title {
+    font-weight: 600;
+  }
+
+  .badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem;
+  }
+</style>
