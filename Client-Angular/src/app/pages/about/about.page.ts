@@ -2,11 +2,31 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+/**
+ * Interfaz que representa un objetivo del proyecto.
+ *
+ * Define la estructura para los objetivos estratégicos del proyecto de comparación
+ * entre frameworks, incluyendo su descripción y contexto.
+ *
+ * @interface Objective
+ * @property {string} title - Título del objetivo principal
+ * @property {string} description - Descripción detallada de lo que se pretende lograr con este objetivo
+ */
 interface Objective {
   title: string;
   description: string;
 }
 
+/**
+ * Interfaz que agrupa tecnologías por categoría.
+ *
+ * Define la estructura para presentar las tecnologías utilizadas en el proyecto,
+ * organizadas en categorías temáticas (frameworks, herramientas, librerías, etc.).
+ *
+ * @interface Technology
+ * @property {string} category - Nombre de la categoría (ej: Frontend Frameworks, Herramientas)
+ * @property {string[]} items - Lista de tecnologías específicas en esta categoría con versiones
+ */
 interface Technology {
   category: string;
   items: string[];

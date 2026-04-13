@@ -3,6 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import type { BadgeType } from '../../interfaces/Badge';
 
+/**
+ * Interfaz que representa a un miembro del equipo de desarrollo.
+ *
+ * Define la estructura de datos para cada profesional que forma parte del equipo,
+ * incluyendo información de identificación, competencias y perfil.
+ *
+ * @interface TeamMember
+ * @property {number} id - Identificador único del miembro del equipo
+ * @property {string} name - Nombre completo del miembro
+ * @property {string} role - Rol profesional que desempeña en el proyecto
+ * @property {string[]} expertise - Array de especialidades técnicas y competencias
+ * @property {string} bio - Descripción biográfica o responsabilidades del miembro
+ * @property {string} emoji - Emoji representativo del miembro o su rol
+ */
 interface TeamMember {
   id: number;
   name: string;
@@ -12,6 +26,18 @@ interface TeamMember {
   emoji: string;
 }
 
+/**
+ * Interfaz que define un rol disponible en el equipo de trabajo.
+ *
+ * Describe las características y atributos de cada rol que puede ser desempeñado
+ * en el proyecto, incluyendo su descripción y disponibilidad actual.
+ *
+ * @interface TeamRole
+ * @property {string} role - Nombre del rol (ej: Arquitecto, Frontend, Backend)
+ * @property {string} description - Descripción detallada de las responsabilidades del rol
+ * @property {BadgeType} badgeType - Tipo de badge para indicar visualmente el rol
+ * @property {number} count - Cantidad de miembros asignados a este rol actualmente
+ */
 interface TeamRole {
   role: string;
   description: string;

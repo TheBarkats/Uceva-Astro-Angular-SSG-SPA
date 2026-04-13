@@ -4,6 +4,19 @@ import { RouterModule } from '@angular/router';
 import type { BadgeType } from '../../interfaces/Badge';
 import type { ProductCategory } from '../../interfaces/products.interface';
 
+/**
+ * Interfaz que representa una categoría de productos.
+ *
+ * Define la estructura para mostrar información detallada sobre las categorías
+ * de productos disponibles en el sistema, incluyendo descripción y ejemplos.
+ *
+ * @interface Category
+ * @property {ProductCategory} name - Nombre identificador de la categoría de producto
+ * @property {string} description - Descripción completa de los tipos de productos en esta categoría
+ * @property {string} emoji - Emoji representativo de la categoría para interfaz visual
+ * @property {BadgeType} badgeType - Tipo de badge para estilizar visualmente la categoría
+ * @property {string[]} examples - Array con ejemplos específicos de productos en esta categoría
+ */
 interface Category {
   name: ProductCategory;
   description: string;
