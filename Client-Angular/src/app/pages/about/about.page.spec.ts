@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { AboutPage } from './about.page';
 
 describe('AboutPage', () => {
@@ -8,7 +8,8 @@ describe('AboutPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutPage, RouterModule],
+      imports: [AboutPage],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AboutPage);
@@ -37,19 +38,29 @@ describe('AboutPage', () => {
     });
   });
 
-  it('should have all technologies with name and description', () => {
+  it('should have all technologies with category and items', () => {
     component.technologies.forEach(tech => {
-      expect(tech.name).toBeDefined();
-      expect(tech.description).toBeDefined();
-      expect(tech.name.length).toBeGreaterThan(0);
-      expect(tech.description.length).toBeGreaterThan(0);
+      expect(tech.category).toBeDefined();
+      expect(tech.items).toBeDefined();
+      expect(Array.isArray(tech.items)).toBe(true);
+      expect(tech.items.length).toBeGreaterThan(0);
+      expect(tech.category.length).toBeGreaterThan(0);
     });
   });
 
-  it('should have technologies with emojis', () => {
+  it('should include known technology categories', () => {
+    const categories = component.technologies.map((tech) => tech.category);
+    expect(categories).toContain('Frontend Frameworks');
+    expect(categories).toContain('Estilos y Componentes');
+    expect(categories).toContain('Herramientas');
+  });
+
+  it('should have technology items as non-empty strings', () => {
     component.technologies.forEach(tech => {
-      expect(tech.emoji).toBeDefined();
-      expect(tech.emoji.length).toBeGreaterThan(0);
+      tech.items.forEach((item) => {
+        expect(item).toBeDefined();
+        expect(item.length).toBeGreaterThan(0);
+      });
     });
   });
 });
